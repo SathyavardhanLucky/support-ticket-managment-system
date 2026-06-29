@@ -1,0 +1,87 @@
+/* SLATimer Stylesheet */
+
+.sla-timer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.sla-timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sla-timer-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.sla-timer-clock {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.sla-time-string {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sla-warning-icon {
+  animation: pulse 1s infinite alternate;
+  font-size: 12px;
+}
+
+/* Progress bar styling */
+.sla-progress-track {
+  background-color: rgba(255, 255, 255, 0.05);
+  height: 4px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  width: 100%;
+}
+
+.sla-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 1s linear;
+}
+
+/* Color States */
+.normal .sla-time-string {
+  color: var(--green-soft);
+}
+.normal .sla-progress-fill {
+  background-color: var(--green-soft);
+}
+
+.urgent .sla-time-string {
+  color: var(--yellow-soft);
+}
+.urgent .sla-progress-fill {
+  background-color: var(--yellow-soft);
+}
+
+.critical {
+  animation: borderGlow 1.5s infinite alternate;
+}
+.critical .sla-time-string {
+  color: var(--red-soft);
+  animation: pulse 1s infinite alternate;
+}
+.critical .sla-progress-fill {
+  background-color: var(--red-soft);
+}
+
+.breached .sla-time-string {
+  color: var(--red-soft);
+  font-weight: 800;
+}
+.breached .sla-progress-fill {
+  background-color: var(--red-soft);
+}

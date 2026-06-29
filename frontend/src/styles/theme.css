@@ -1,0 +1,186 @@
+
+:root {
+  --bg-deep:       #06060A;
+  --bg-card:       rgba(255, 255, 255, 0.03);
+  --bg-card-hover: rgba(212, 175, 55, 0.04);
+  --bg-sidebar:    #080810;
+
+
+  --gold:          #D4AF37;
+  --gold-light:    #F5E6A3;
+  --gold-dim:      rgba(212, 175, 55, 0.4);
+  --gold-border:   rgba(212, 175, 55, 0.2);
+  --gold-glow:     rgba(212, 175, 55, 0.15);
+
+  --purple:        #A78BFA;
+  --purple-dim:    rgba(139, 92, 246, 0.15);
+  --teal:          #2DD4BF;
+  --red-soft:      #FCA5A5;
+  --green-soft:    #6EE7B7;
+  --blue-soft:     #93C5FD;
+  --yellow-soft:   #FCD34D;
+
+  --text-primary:  #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-muted:    rgba(255, 255, 255, 0.3);
+
+  --border-default: rgba(255, 255, 255, 0.07);
+  --border-gold:   rgba(212, 175, 55, 0.2);
+  --border-gold-bright: rgba(212, 175, 55, 0.5);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --sidebar-w: 52px;
+
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: var(--gold-border); }
+  50% { border-color: var(--border-gold-bright); }
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, -30px) scale(1.08); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+/* App layout wrapper resets */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0;
+  margin-left: var(--sidebar-w);
+}
+
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+/* Cards & Inputs Design system defaults */
+.dark-glass-card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.dark-glass-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-gold);
+}
+
+.dark-input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.85rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+}
+
+.dark-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.dark-input option {
+  background-color: #080810;
+  color: var(--text-primary);
+}
+
+
+.dark-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+body {
+  background-color: var(--bg-deep) !important;
+  color: var(--text-primary) !important;
+  margin: 0;
+  padding: 0;
+}
+

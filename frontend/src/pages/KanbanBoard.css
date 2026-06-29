@@ -1,0 +1,298 @@
+/* KanbanBoard Stylesheet */
+
+.kanban-board-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  height: calc(100vh - 120px);
+  min-height: 500px;
+}
+
+@media (max-width: 900px) {
+  .kanban-board-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.kanban-column {
+  background-color: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition);
+}
+
+/* Drop Zone Highlight */
+.drag-over-highlight {
+  background-color: rgba(212, 175, 55, 0.03);
+  border-color: var(--gold-border);
+  box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.kanban-column-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.kanban-column-header h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.column-count-badge {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+.kanban-column-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Empty Placeholder */
+.column-empty-placeholder {
+  border: 1.5px dashed var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: auto 0;
+}
+
+/* Kanban Card */
+.kanban-card-wrapper {
+  cursor: grab;
+}
+
+.kanban-card-wrapper:active {
+  cursor: grabbing;
+}
+
+/* Dragging slight rotation */
+.kanban-card-wrapper[draggable="true"]:active .kanban-card {
+  transform: rotate(2deg) scale(0.98);
+  border-color: var(--gold-border);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.kanban-card {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-default);
+  transition: var(--transition);
+}
+
+.kanban-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-border);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  background-color: var(--bg-card-hover);
+}
+
+.kanban-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kanban-card-id {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.kanban-card-avatar {
+  width: 18px;
+  height: 18px;
+  background-color: rgba(212, 175, 55, 0.1);
+  border: 0.5px solid var(--border-gold);
+  border-radius: 50%;
+  color: var(--gold-light);
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kanban-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.kanban-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.kanban-sla-mini {
+  transform: scale(0.85);
+  transform-origin: right center;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Column Header Color accents */
+.col-gold .kanban-column-header h4 { color: var(--gold-light); }
+.col-gold { border-top: 3px solid var(--gold); }
+
+.col-purple .kanban-column-header h4 { color: var(--purple); }
+.col-purple { border-top: 3px solid var(--purple); }
+
+.col-amber .kanban-column-header h4 { color: var(--yellow-soft); }
+.col-amber { border-top: 3px solid var(--yellow-soft); }
+
+.col-green .kanban-column-header h4 { color: var(--green-soft); }
+.col-green { border-top: 3px solid var(--green-soft); }
+
+.kanban-loading {
+  text-align: center;
+  padding: 6rem;
+  color: var(--text-secondary);
+}
+
+/* Kanban Drag Confirmation Modal */
+.kanban-confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(6, 6, 10, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.kanban-confirm-modal {
+  background-color: var(--bg-sidebar);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.confirm-btn-modal {
+  background-color: var(--gold);
+  color: var(--bg-deep);
+  border: none;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.confirm-btn-modal:hover {
+  background-color: var(--gold-light);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.cancel-btn-modal {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.cancel-btn-modal:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Local Badge Definitions for Kanban */
+.badge-vip {
+  font-size: 8px;
+  font-weight: 850;
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--gold-light);
+  border: 0.5px solid var(--gold);
+  padding: 1px 4px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.escalation-level-badge {
+  font-size: 8px;
+  font-weight: 850;
+  padding: 1px 4px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  border: 0.5px solid transparent;
+}
+
+.escalation-level-badge.level-1 {
+  background-color: rgba(251, 188, 4, 0.15);
+  color: var(--yellow-soft);
+  border-color: rgba(251, 188, 4, 0.3);
+}
+
+.escalation-level-badge.level-2 {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--gold);
+  border-color: var(--gold-border);
+}
+
+.escalation-level-badge.level-3 {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: var(--red-soft);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+

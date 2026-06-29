@@ -1,0 +1,240 @@
+/* TicketList Stylesheet */
+
+.filter-bar-card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.search-bar-inline {
+  width: 100%;
+}
+
+.search-bar-inline input {
+  font-size: 13px;
+}
+
+.filter-dropdowns-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.filter-dropdowns-row select {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Active Filter Chips */
+.active-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-chip {
+  background-color: rgba(212, 175, 55, 0.05);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.filter-chip button {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 0;
+  line-height: 1;
+}
+
+.clear-filters-link {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.clear-filters-link:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+/* Tickets Table */
+.table-responsive-custom {
+  overflow-x: auto;
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+}
+
+.tickets-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.tickets-custom-table th {
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.tickets-custom-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-default);
+  color: var(--text-secondary);
+}
+
+.tickets-custom-table tbody tr {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: var(--transition);
+}
+
+.tickets-custom-table tbody tr.clickable-row {
+  cursor: pointer;
+}
+
+.tickets-custom-table tbody tr:hover {
+  background-color: var(--bg-card-hover);
+  border-left: 2.5px solid var(--gold);
+}
+
+.tickets-custom-table tbody tr:hover td {
+  color: var(--text-primary);
+}
+
+.title-cell-link {
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-cell-link:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.sla-timer-cell {
+  min-width: 160px;
+}
+
+/* Actions Cell */
+.action-btns-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.6;
+  transition: var(--transition);
+}
+
+.icon-action-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* SLA Breached row tint */
+.row-sla-breached {
+  background-color: rgba(234, 67, 53, 0.02);
+}
+
+/* Empty State */
+.empty-state-list {
+  background-color: var(--bg-card);
+  border: 1.5px dashed var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 3rem auto;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.empty-state-list h3 {
+  font-size: 16px;
+  color: var(--gold-light);
+}
+
+.empty-state-list p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  max-width: 320px;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.error-alert {
+  background-color: rgba(234, 67, 53, 0.08);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius-md);
+  color: var(--red-soft);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  font-size: 12px;
+}

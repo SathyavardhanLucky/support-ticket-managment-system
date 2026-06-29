@@ -1,0 +1,74 @@
+/* Crownridge LLP STMS Badges Styling */
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 0.5px solid transparent;
+  line-height: 1;
+}
+
+.badge-critical {
+  color: #FCA5A5;
+  background: rgba(252, 165, 165, 0.1);
+  border-color: rgba(252, 165, 165, 0.25);
+}
+
+.badge-high {
+  color: #FCD34D;
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.badge-medium {
+  color: #93C5FD;
+  background: rgba(147, 197, 253, 0.1);
+  border-color: rgba(147, 197, 253, 0.25);
+}
+
+.badge-low {
+  color: #6EE7B7;
+  background: rgba(110, 231, 183, 0.1);
+  border-color: rgba(110, 231, 183, 0.2);
+}
+
+.badge-open {
+  color: #D4AF37;
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+.badge-inprogress {
+  color: #C4B5FD;
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.badge-onhold {
+  color: #FCD34D;
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.2);
+}
+
+.badge-resolved {
+  color: #6EE7B7;
+  background: rgba(110, 231, 183, 0.1);
+  border-color: rgba(110, 231, 183, 0.2);
+}
+
+.badge-closed {
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fade-in-badge {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+

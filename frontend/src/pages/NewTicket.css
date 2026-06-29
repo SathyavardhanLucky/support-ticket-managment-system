@@ -1,0 +1,218 @@
+/* NewTicket Stylesheet */
+
+.new-ticket-centered-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.new-ticket-form-card {
+  width: 100%;
+  max-width: 620px;
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+}
+
+.form-card-header {
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: 0.75rem;
+}
+
+.form-card-header h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-card-header p {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.new-ticket-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .form-row-double {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Priority Segmented Control */
+.priority-segmented-control {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  padding: 3px;
+  gap: 4px;
+}
+
+.segmented-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.segmented-button:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+/* Priority color coding active states */
+.btn-prio-low.active {
+  background-color: rgba(110, 231, 183, 0.12);
+  color: var(--green-soft);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+}
+
+.btn-prio-medium.active {
+  background-color: rgba(147, 197, 253, 0.12);
+  color: var(--blue-soft);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+.btn-prio-high.active {
+  background-color: rgba(251, 191, 36, 0.12);
+  color: var(--yellow-soft);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.btn-prio-critical.active {
+  background-color: rgba(252, 165, 165, 0.12);
+  color: var(--red-soft);
+  border: 1px solid rgba(252, 165, 165, 0.3);
+}
+
+/* Attachment Drag Drop */
+.attachment-drag-zone {
+  border: 1.5px dashed var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.01);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.attachment-drag-zone.drag-active {
+  border-color: var(--gold);
+  background-color: rgba(212, 175, 55, 0.04);
+}
+
+.drag-zone-label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.upload-icon {
+  font-size: 1.5rem;
+}
+
+.browse-link {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.file-attached-name {
+  color: var(--gold-light);
+}
+
+/* AI Priority Assist Block */
+.ai-assist-chip-wrapper {
+  background-color: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ai-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ai-switch-lbl {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 11px;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.ai-switch-lbl input {
+  cursor: pointer;
+}
+
+.ai-analyzing-spinner {
+  font-size: 10px;
+  color: var(--purple);
+  font-weight: 700;
+  animation: pulse 1s infinite alternate;
+}
+
+.ai-suggestion-badge-alert {
+  background-color: rgba(212, 175, 55, 0.05);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  color: var(--gold-light);
+  padding: 0.5rem 0.75rem;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sparkle-bullet {
+  font-size: 11px;
+}
+
+/* Form Submit Button Row */
+.submit-btn-row {
+  margin-top: 1rem;
+}
+
+.submit-ticket-btn-full {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 13px;
+}
+
+/* Form validation shake animation */
+.shake-form {
+  animation: shake 0.4s ease-in-out;
+}

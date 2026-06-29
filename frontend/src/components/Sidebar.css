@@ -1,0 +1,156 @@
+/* Sidebar Stylesheet */
+
+.sidebar-container {
+  width: var(--sidebar-w);
+  height: 100vh;
+  background-color: var(--bg-sidebar);
+  border-right: 0.5px solid rgba(212, 175, 55, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Brand castle logo container */
+.sidebar-brand {
+  width: 32px;
+  height: 32px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.brand-castle-icon {
+  font-size: 1rem;
+}
+
+/* Sidebar Nav */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.sidebar-nav-wrapper,
+.sidebar-bottom-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-nav-item {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sidebar-nav-item:hover {
+  color: var(--gold-light);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.sidebar-nav-item.active {
+  color: var(--gold);
+  background-color: rgba(212, 175, 55, 0.08);
+  border: 1px solid var(--border-gold-bright);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* Tooltips */
+.sidebar-tooltip {
+  position: absolute;
+  left: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: var(--shadow-md);
+  z-index: 1001;
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* Settings Menu Popup */
+.sidebar-settings-menu {
+  position: absolute;
+  left: 45px;
+  bottom: 0px;
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 1002;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.menu-profile-section {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.profile-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.profile-role {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.menu-logout-btn {
+  background-color: rgba(234, 67, 53, 0.08);
+  border: 1px solid rgba(234, 67, 53, 0.25);
+  color: #FCA5A5;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.35rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.menu-logout-btn:hover {
+  background-color: var(--danger);
+  color: white;
+  box-shadow: 0 4px 10px rgba(234, 67, 53, 0.25);
+}
+

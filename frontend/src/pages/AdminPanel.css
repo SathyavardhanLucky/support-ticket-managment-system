@@ -1,0 +1,319 @@
+/* AdminPanel Stylesheet */
+
+.admin-tabs-row {
+  display: flex;
+  gap: 1.25rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+}
+
+.admin-tab-btn:hover {
+  color: var(--gold-light);
+}
+
+.admin-tab-btn.active {
+  color: var(--gold);
+}
+
+.admin-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--gold);
+  border-radius: 2px;
+  box-shadow: 0 0 6px var(--gold);
+}
+
+.admin-tab-content {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  min-height: 350px;
+}
+
+/* User Management Table */
+.admin-users-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.admin-users-table th {
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.admin-users-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-default);
+  color: var(--text-secondary);
+}
+
+/* Active User Dot indicator */
+.active-user-bullet {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--green-soft);
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  box-shadow: 0 0 6px var(--green-soft);
+}
+
+/* SLA Configuration tab */
+.admin-sla-form {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tab-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tab-section-subtitle {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.sla-config-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sla-config-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.sla-config-row label {
+  margin-bottom: 0;
+}
+
+.sla-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sla-input-wrapper input {
+  width: 80px;
+  text-align: center;
+}
+
+.sla-input-wrapper span {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.sla-save-btn-row {
+  margin-top: 0.5rem;
+}
+
+/* Role authorization colored pill badges */
+.admin-role-pill {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border: 0.5px solid transparent;
+}
+
+.role-admin { color: var(--red-soft); background-color: rgba(252,165,165,0.08); border-color: rgba(252,165,165,0.2); }
+.role-manager { color: var(--purple); background-color: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); }
+.role-tech { color: var(--blue-soft); background-color: rgba(147,197,253,0.08); border-color: rgba(147,197,253,0.2); }
+.role-agent { color: var(--green-soft); background-color: rgba(110,231,183,0.08); border-color: rgba(110,231,183,0.2); }
+.role-client { color: var(--gold-light); background-color: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.2); }
+
+/* Slide-over Right Drawer Panel */
+.drawer-overlay-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(6, 6, 10, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+}
+
+.drawer-panel-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 380px;
+  height: 100%;
+  background-color: var(--bg-sidebar);
+  border-left: 1px solid var(--border-gold);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  animation: drawerSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.drawer-header-custom {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-default);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-header-custom h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.drawer-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.drawer-close-btn:hover {
+  color: var(--text-primary);
+}
+
+.drawer-form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.drawer-submit-btn-row {
+  margin-top: 1rem;
+}
+
+.drawer-error-alert {
+  background-color: rgba(234, 67, 53, 0.08);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius-sm);
+  color: var(--red-soft);
+  padding: 0.5rem;
+  font-size: 11px;
+}
+
+@keyframes drawerSlideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Category & System Mock Panels */
+.mock-grid-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.category-meta-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.category-card-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.category-card-status {
+  font-size: 9px;
+  color: var(--green-soft);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.system-health-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.health-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.health-lbl {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.health-val {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.text-green {
+  color: var(--green-soft);
+}
+
+.admin-tab-loading {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 12px;
+  padding: 3rem 0;
+}

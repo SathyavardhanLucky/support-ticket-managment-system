@@ -1,0 +1,104 @@
+/* StatCard Stylesheet */
+
+.stat-card-custom {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: countUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: var(--transition);
+}
+
+.stat-card-custom:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--gold-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.stat-card-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+/* Variant Classes */
+.stat-gold {
+  background-color: rgba(212, 175, 55, 0.03);
+  border-color: rgba(212, 175, 55, 0.15);
+}
+
+.stat-gold:hover {
+  background-color: rgba(212, 175, 55, 0.05);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.stat-gold .stat-card-value {
+  color: var(--gold-light);
+}
+
+.stat-danger {
+  background-color: rgba(234, 67, 53, 0.02);
+  border-color: rgba(234, 67, 53, 0.15);
+}
+
+.stat-danger:hover {
+  background-color: rgba(234, 67, 53, 0.04);
+  border-color: rgba(234, 67, 53, 0.3);
+}
+
+.stat-danger .stat-card-value {
+  color: var(--red-soft);
+}
+
+.stat-success {
+  background-color: rgba(52, 168, 83, 0.02);
+  border-color: rgba(52, 168, 83, 0.15);
+}
+
+.stat-success:hover {
+  background-color: rgba(52, 168, 83, 0.04);
+  border-color: rgba(52, 168, 83, 0.3);
+}
+
+.stat-success .stat-card-value {
+  color: var(--green-soft);
+}
+
+/* Delta Badges */
+.stat-card-delta {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+
+.delta-positive {
+  color: var(--green-soft);
+  background-color: rgba(110, 231, 183, 0.08);
+}
+
+.delta-negative {
+  color: var(--red-soft);
+  background-color: rgba(252, 165, 165, 0.08);
+}

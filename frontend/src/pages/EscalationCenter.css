@@ -1,0 +1,126 @@
+/* Escalation Center Stylesheet */
+
+.escalation-level-badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+  display: inline-block;
+}
+
+.escalation-level-badge.level-1 {
+  background-color: rgba(251, 188, 4, 0.1);
+  color: var(--yellow-soft);
+  border-color: rgba(251, 188, 4, 0.3);
+}
+
+.escalation-level-badge.level-2 {
+  background-color: rgba(212, 175, 55, 0.12);
+  color: var(--gold);
+  border-color: var(--gold-border);
+}
+
+.escalation-level-badge.level-3 {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--red-soft);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.active-row-highlight {
+  background-color: var(--bg-card-hover) !important;
+  border-left: 2.5px solid var(--gold) !important;
+}
+
+/* Desk Panel Card styles */
+.internal-notes-log {
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.note-comment-item {
+  border-bottom: 0.5px dashed rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.35rem;
+}
+
+.note-comment-item:last-child {
+  border-bottom: none;
+}
+
+.internal-note-input {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 11px;
+  padding: 0.4rem;
+  outline: none;
+  resize: none;
+  transition: var(--transition);
+}
+
+.internal-note-input:focus {
+  border-color: var(--gold-border);
+  box-shadow: 0 0 6px var(--gold-glow);
+}
+
+.add-note-btn {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-light);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.35rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.add-note-btn:hover {
+  background-color: var(--gold);
+  color: var(--bg-deep);
+  box-shadow: 0 2px 8px var(--gold-glow);
+}
+
+.deescalate-action-btn {
+  background-color: rgba(110, 231, 183, 0.15);
+  color: var(--green-soft);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.4rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.deescalate-action-btn:hover {
+  background-color: var(--green-soft);
+  color: var(--bg-deep);
+}
+
+.view-ticket-action-btn {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.view-ticket-action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
