@@ -5,6 +5,7 @@ import GoldButton from '../components/GoldButton';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../config';
 import './NewTicket.css';
 
 export const NewTicket = () => {
@@ -41,8 +42,11 @@ export const NewTicket = () => {
 
     setSuggesting(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/ai/suggest-priority', {
+      const token = localStorage.getItem('token');
+      const response = await axios.post(`${API_URL}/ai/suggest-priority`, {
         description
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
       });
       const { suggested_priority, reason } = response.data;
       setAiSuggestion(suggested_priority);
@@ -95,15 +99,25 @@ export const NewTicket = () => {
 
     setLoading(true);
     try {
+      const severityMap = {
+        'Low': 'Minor',
+        'Medium': 'Major',
+        'High': 'Critical',
+        'Critical': 'Blocker'
+      };
+      
       const payload = {
         title,
         description,
         category,
         priority,
-        severity
+        severity: severityMap[severity] || 'Minor'
       };
       
-      const response = await axios.post('http://localhost:5000/api/tickets', payload);
+      const token = localStorage.getItem('token');
+      const response = await axios.post(`${API_URL}/tickets`, payload, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
       navigate(`/tickets/${response.data.id}`);
     } catch (err) {
       alert(err.response?.data?.error || 'Failed to log support ticket.');

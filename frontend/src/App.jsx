@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
-import NotificationToast from './components/NotificationToast';
+import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import TicketList from './pages/TicketList';
@@ -13,36 +13,6 @@ import Reports from './pages/Reports';
 import KanbanBoard from './pages/KanbanBoard';
 import EscalationCenter from './pages/EscalationCenter';
 
-
-const ProtectedLayout = ({ children }) => {
-  const { user, loading } = useAuth();
-  const location = useLocation();
-
-  if (loading) {
-    return (
-      <div className="loading-container-guard">
-        <div className="guard-spinner">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-        </div>
-        <p>Validating user credentials...</p>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return (
-    <>
-      {children}
-      <NotificationToast />
-    </>
-  );
-};
-
 function App() {
   return (
     <Router>
@@ -51,14 +21,14 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             
-            <Route path="/" element={<ProtectedLayout><Dashboard /></ProtectedLayout>} />
-            <Route path="/tickets" element={<ProtectedLayout><TicketList /></ProtectedLayout>} />
-            <Route path="/tickets/:id" element={<ProtectedLayout><TicketDetail /></ProtectedLayout>} />
-            <Route path="/new-ticket" element={<ProtectedLayout><NewTicket /></ProtectedLayout>} />
-            <Route path="/admin" element={<ProtectedLayout><AdminPanel /></ProtectedLayout>} />
-            <Route path="/reports" element={<ProtectedLayout><Reports /></ProtectedLayout>} />
-            <Route path="/kanban" element={<ProtectedLayout><KanbanBoard /></ProtectedLayout>} />
-            <Route path="/escalations" element={<ProtectedLayout><EscalationCenter /></ProtectedLayout>} />
+            <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/tickets" element={<ProtectedRoute><TicketList /></ProtectedRoute>} />
+            <Route path="/tickets/:id" element={<ProtectedRoute><TicketDetail /></ProtectedRoute>} />
+            <Route path="/new-ticket" element={<ProtectedRoute><NewTicket /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
+            <Route path="/reports" element={<ProtectedRoute><Reports /></ProtectedRoute>} />
+            <Route path="/kanban" element={<ProtectedRoute><KanbanBoard /></ProtectedRoute>} />
+            <Route path="/escalations" element={<ProtectedRoute><EscalationCenter /></ProtectedRoute>} />
             
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
